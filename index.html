@@ -1,3 +1,60 @@
-<canvas></canvas>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FIGHTING GAME</title>
+    
+</head>
+<body>
 
-<script src="index.js"></script>
+    <!-- red container -->
+    <div class="red-container">
+
+        <!-- smaller red-container -->
+        <div class="smaller-container">
+
+            <!-- player health -->
+            <div class="damage-parent-p">
+
+                <div class="health-bar-p"> </div>
+
+                <div id="player-hp"  class="damage-child-p"></div>
+
+            </div>
+            
+
+            <!-- timer -->
+            <div  id="timer" class="timer-box">
+                10
+            </div>
+
+            <!-- enemy health -->
+            <div class="damage-parent-e">
+
+                <div  class="health-bar-e"></div>
+
+                <div id="enemy-hp" class="damage-child-e"></div>
+            </div>
+            
+        </div>
+
+        <div id="displayText" class="tie">
+            Tie
+
+        </div>
+
+        <canvas></canvas>
+
+    </div>
+
+
+    <script src="index.js"></script>
+
+</body>
+</html>
+
+
+

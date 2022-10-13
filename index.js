@@ -32,7 +32,8 @@ class Sprite{
             height:50
         }
         this.color = color;
-        this.isAttacking
+        this.isAttacking;
+        this.health = 100;
     }
 
     draw(){
@@ -145,6 +146,32 @@ function rectangularCollision ({
     )
 }
 
+//funzione timer 
+let timer = 5
+function decreaseTimer(){
+    
+    if(timer > 0){
+        setTimeout(decreaseTimer, 1000)
+        timer--;
+        document.querySelector('#timer').innerHTML = timer;
+    } 
+
+
+    if (timer === 0) {
+        if (player.health === enemy.health) {
+            document.querySelector('#displayText').innerHTML = 'Tie';
+
+            document.querySelector('#displayText').style.display = 'flex';
+
+        }
+
+    }
+    
+}
+
+decreaseTimer();
+
+
 
 //creazione animation loop
 function animate() {
@@ -180,8 +207,9 @@ function animate() {
        }) &&
         player.isAttacking
         ) {
-        player.isAttacking = false;    
-        console.log('player attack succesful')
+        player.isAttacking = false;   
+        enemy.health -= 20; 
+        document.querySelector("#enemy-hp").style.width = enemy.health + "%";
     }
 
     if(
@@ -192,8 +220,9 @@ function animate() {
        }) &&
         enemy.isAttacking
         ) {
-        enemy.isAttacking = false;    
-        console.log('enemy attack succesful')
+        enemy.isAttacking = false; 
+        player.health -= 20;   
+        document.querySelector("#player-hp").style.width = player.health + "%";
     }
 }
 
